@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/*Importação da fonte "Montserrat", utilizada abaixo:*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; /*Usando Montserrat*/
+}
+
+body{
+    /*background: rgb(11,112,0);
+    background: linear-gradient(113deg, rgba(11,112,0,1) 23%, rgba(28,121,9,1) 23%, #00ff96 82%);*/
+    /*background: rgb(255,255,255);
+    background: linear-gradient(54deg, rgba(255,255,255,1) 9%, rgba(184,255,170,1) 52%, rgba(80,200,120,1) 83%);*/
+    background: #50C878;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+} 
+/*Formatação do corpo do site (Fundo). Foi utilizado o site: https://cssgradient.io/ para pegar o gradiente*/
+
+.container{
+    text-align: left;
+    color: rgb(0, 75, 29);
+    display: flex;
+    outline: rgb(0, 255, 128);
+    outline-width: 15px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    width: 750px;
+    max-width: 100%;
+    height: 80%;
+}
+/*O "container" é a caixa onde se encontram os espaços para inserir e-mail, senha, e também para redirecionar o usuário para a tela de "Esqueceu a senha"*/
+
+form{
+    margin: 10%;
+    text-justify: distribute;
+    padding: 0 40px;
+}
+form h1{
+    color: #ffffff;
+    margin-top: -40px;
+    margin-bottom: 60px;
+    text-align: center;
+    background:#50C878;
+    border-color: #ffffff;
+    border-radius: 160px;
+    border-style: solid;
+}
+form p{
+    font-size: 14px;
+    text-justify: distribute;
+    margin-top: 10%;
+}
+
+.sign-in{
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.container span{
+    font-size: 18px;
+}
+
+.container a{
+    color: #063511;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+    outline: rgb(0, 255, 128);
+    outline-width: 15px;
+}
+
+.container button{
+    background-color: #50C878;
+    color: #c2ffd6;
+    font-size: 12px;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.container button.hidden{
+    background-color: #fff;
+    color: #50C878;
+    border-color: #c2ffd6;
+}
+
+.container input{
+    background-color: #50c87818;
+    border: none;
+    margin: 20px 0 20px 0;
+    padding: 10px 15px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
+}
