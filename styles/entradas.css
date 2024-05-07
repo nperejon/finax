@@ -120,15 +120,15 @@ body{
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    
 }
 .registers span.active {
-    transition: background-color 0.5s, color 0.3s;
     background-color: #063511;
     color: #fff;
 }
 .registers .entry:hover,
 .registers .exit:hover{
-    transition: background-color 0.5s, color 0.3s, border-color 0.5s;
     background-repeat: no-repeat;
     border-color: #fff;
     background-color: #46a16583;
@@ -243,8 +243,15 @@ body{
     border-radius: 8px;
     width: 100%;
     outline: none;
+    transition: all 0.3s ease-in-out;
 }
-
+.container input:hover{
+    background-color: #83b1925e;
+}
+.container input:focus{
+    background-color: #83b1925e;
+    box-shadow: inset 2px 2px #83b1925e;
+}
 .form-container{
     position: absolute;
     top: 0;

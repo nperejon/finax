@@ -118,21 +118,18 @@ form p{
     border-radius: 8px;
     width: 100%;
     outline: none;
+    transition: all 0.3s ease-in-out;
 }
 
 .container a:hover{
     color: #50C878;
 }
 
-.insert-email:not(:hover),
-.insert-email:not(:focus){
-    transition: background-color 0.5s, color 0.3s;
-    background-color: #50c87818;
-}
-
-.insert-email:hover,
-.insert-email:focus{
-    transition: background-color 0.5s, color 0.3s;
+.insert-email:hover{
     background-color: #90caa45e;
     color: #063511;
+}
+.insert-email:focus{
+    background-color: #83b1925e;
+    box-shadow: inset 2px 2px #83b1925e;
 }
