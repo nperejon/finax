@@ -5,7 +5,8 @@
     <title>FINEX - Site de Educação Financeira</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="./styles/index.css">
 </head>
 
@@ -13,53 +14,57 @@
     <div class="container" id="container">
         <div class="form-container sign-in">
             <form>
-                <h1>Entrar com uma conta</h1>
-                <!-- <div class="icones">
-                    <a href="inserir" class="icons"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="inserir" class="icons"><i class="fa-brands fa-github"></i></a>
-                    <a href="inserir" class="icons"><i class="fa-brands fa-linkedin"></i></a>
-                </div> -->
+                <h1>Entre com sua conta!</h1>
+                <div class="icones">
+                    <a href="index.html" class="icons" id="fb_login">
+                    <i class="fa-brands fa-facebook"></i></a>
+                    <a href="index.html" class="icons" id="gh_login">
+                    <i class="fa-brands fa-github"></i></a>
+                    <a href="entradas.html" class="icons" id="lkd_login">
+                    <i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
                 <span>Ou insira seu e-mail e sua senha</span>
-                <input type="email" placeholder="E-mail">
-                <input type="password" placeholder="Insira uma senha">
+                <input type="email" class="login" placeholder="E-mail" required>
+                <input type="password" class="login" placeholder="Insira uma senha" required>
                 <button id="entrar">Entrar</button>
 
-                <a href="#">Esqueceu sua senha?</a>
+                <a href="senha.html" id="forgotpassword">Esqueceu sua senha?</a>
             </form>
         </div>
                 
 
         <div class="form-container sign-up">
             <form>
-                <h1>Crie uma conta</h1>
+                <h1>Crie sua conta!</h1>
                 <div class="icones">
-                    <a href="inserir" class="icons"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="inserir" class="icons"><i class="fa-brands fa-github"></i></a>
-                    <a href="inserir" class="icons"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="index.html" class="icons" id="fb_login">
+                        <i class="fa-brands fa-facebook"></i></a>
+                        <a href="index.html" class="icons" id="gh_login">
+                        <i class="fa-brands fa-github"></i></a>
+                        <a href="entradas.html" class="icons" id="lkd_login">
+                        <i class="fa-brands fa-linkedin-in"></i></a>
                 </div>
                 <span>Ou cadastre-se no nosso site</span>
-                <input type="text" placeholder="Nome">
-
-                <input type="email" placeholder="E-mail">
-
-                <input type="password" placeholder="Insira uma senha">
-
+                <input type="text" class="registers" placeholder="Nome" required>
+                <input type="email" class="registers" placeholder="E-mail" required>
+                <input type="password" class="registers" placeholder="Insira uma senha" required>
+                <input type="telefone" class="registers" placeholder="Nº de celular">
                 <button id="registrar">Registrar</button>
             </form>
         </div>
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
-                    <img width="175px" height="175px" src="question.svg">
+                    <img width="175px" height="175px" src="./images/question.svg">
                     <h1>Já possui conta?</h1>
                     <p>Insira seus dados para acessar nosso site!</p>
                     <button class="hidden" id="login">Entre com sua conta!</button>
                 </div>
     
                 <div class="toggle-panel toggle-right">
-                    <img width="200px" height="200px" src="welcome.svg">
-                    <h1>Bem vindo à FINEX™!</h1>
-                    <p>Registre-se para ter acesso total aos recursos do site.</p>
+                    <img width="200px" height="200px" src="./images/welcome.svg">
+                    <h1>Bem vindo(a) à FINEX™!</h1>
+                    <p>Faça seu cadastro para ter acesso total aos recursos do site.</p>
                     <button class="hidden" id="register">Crie sua conta!</button>
                 </div>
     
@@ -67,6 +72,9 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="./all_scripts/script.js"></script>
+    <!--<input type="checkbox" class="dark-mode" id="dm-color">
+    -->
 </body>
+
 </html>

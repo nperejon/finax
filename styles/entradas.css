@@ -41,7 +41,9 @@ body{
     width: 100%;
     z-index: 2;
 }
-
+.container h1{
+    margin-top: -20px;
+}
 .container p{
     color: rgb(255, 255, 255);
     outline: rgb(0, 255, 128);
@@ -52,10 +54,13 @@ body{
     margin: 20px 0;
 }
 
-.container span{
-    font-size: 12px;
-}
+.total{
+    text-align: center;
+    position: relative;
+    font-size: 20px;
+    margin-top: -20px;
 
+}
 .container a{
     color: #063511;
     font-size: 13px;
@@ -102,9 +107,11 @@ body{
 }
 
 .registers span {
-    border: 1px solid #063511;
+    border: 1px solid #46a164;
     padding: 8px 16px;
     width: 100px;
+    margin-bottom: -20px;
+    margin-top: -10px;
     color: #063511;
     font-size: 1rem;
     border-radius: 12px;
@@ -114,12 +121,19 @@ body{
     justify-content: center;
     cursor: pointer;
 }
-
 .registers span.active {
+    transition: background-color 0.5s, color 0.3s;
     background-color: #063511;
     color: #fff;
 }
-
+.registers .entry:hover,
+.registers .exit:hover{
+    transition: background-color 0.5s, color 0.3s, border-color 0.5s;
+    background-repeat: no-repeat;
+    border-color: #fff;
+    background-color: #46a16583;
+    color: #ebfcf0;
+}
 .entry-content,
 .exit-content {
     flex-direction: column;
