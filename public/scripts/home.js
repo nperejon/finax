@@ -13,8 +13,3 @@ imagemBotao.addEventListener('click', function() {
 document.getElementById('perfil').addEventListener('click', function() {
     alert('Opção: Perfil');
 });
-
-// Ação ao clicar no botão "Sair"
-document.getElementById('sair').addEventListener('click', function() {
-    alert('Opção: Sair');
-});

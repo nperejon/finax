@@ -10,6 +10,11 @@ class Login
     public function index()
     {
         SessionManager::start();
+
+        if (SessionManager::get('user_id')) {
+            header('Location: '.BASE_URL.'home');
+            exit;
+        }
         
         $csrf_token = CsrfToken::generate();
         require __DIR__ ."../../../views/index.php";
@@ -84,7 +89,7 @@ class Login
             SessionManager::set('user_telefone', $user->telefone);
             SessionManager::set('user_datanascimento', $user->datanascimento);
 
-            header('Location: '.BASE_URL.'/home');
+            header('Location: '.BASE_URL.'home');
             exit;
         } catch (Exception $e) {
             SessionManager::set('message', [
@@ -170,5 +175,12 @@ class Login
             header('Location: '.BASE_URL);
             exit;
         }
+    }
+
+    public function logout()
+    {
+        SessionManager::destroy();
+        header('Location: '.BASE_URL);
+        exit;
     }
 }

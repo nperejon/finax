@@ -366,3 +366,13 @@ body{
     color: #50C878;
     border-color: #c2ffd6;
 }
+
+
+.back {
+    color: #FFF;
+    text-decoration: none;
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 1.2rem;
+}

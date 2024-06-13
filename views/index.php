@@ -29,8 +29,8 @@
                 <h1>Entre com sua conta!</h1>
                 <span>Ou insira seu e-mail e sua senha</span>
                 <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
-                <input type="email" name="email" class="login" placeholder="E-mail" required>
-                <input type="password" name="senha" class="login" placeholder="Insira uma senha" required>
+                <input type="email" name="email" class="login" placeholder="E-mail" required autocomplete="off" value="">
+                <input type="password" name="senha" class="login" placeholder="Insira uma senha" required autocomplete="off" value="">
                 <input type="submit" name="login" value="Entrar">
                 <a href="senha.html" id="forgotpassword">Esqueceu sua senha?</a>
             </form>
@@ -48,11 +48,11 @@
                 ?>
                 <h1>Crie sua conta!</h1>
                 <span>Ou cadastre-se no nosso site</span>
-                <input type="text" name="nome" class="registers" placeholder="Nome" required>
-                <input type="email" name="email" class="registers" placeholder="E-mail" required>
-                <input type="password" name="senha" class="registers" placeholder="Insira uma senha" required>
-                <input type="telefone" name="telefone" class="registers" placeholder="Nº de celular">
-                <input type="date" class="registers" name="datanascimento" placeholder="Data de nascimento" required>
+                <input type="text" name="nome" class="registers" placeholder="Nome" required autocomplete="off" value="">
+                <input type="email" name="email" class="registers" placeholder="E-mail" required autocomplete="off" value="">
+                <input type="password" name="senha" class="registers" placeholder="Insira uma senha" required autocomplete="off" value="">
+                <input type="telefone" name="telefone" class="registers" placeholder="Nº de celular" autocomplete="off" value="">
+                <input type="date" class="registers" name="datanascimento" placeholder="Data de nascimento" required autocomplete="off" value="">
                 <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
                 <input id="registrar" type="submit" name="register" value="Registrar">
             </form>

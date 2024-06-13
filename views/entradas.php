@@ -6,10 +6,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="styles/entradas.css">
+    <link rel="stylesheet" href="<?= REDIRECT_URL ?>/styles/entradas.css">
 </head>
 
 <body>
+<a href="<?= REDIRECT_URL ?>" class="back"><i class="fas fa-arrow-left"></i> Voltar</a>
 <div class="container" id="container">
     <div class="entries">
         <div class="form-container sign-in">
@@ -22,116 +23,67 @@
             </div>
 
             <div class="entry-content">
-                <span class="total">Total: R$ 0,00</span>
+                <span class="total">Total: R$ <?= number_format($total_inflow, 2, ',', '.') ?></span>
                 <div class="entries-grid">
-                    <div class="entry">
-                        <div class="icon">
-                            <i class="fas fa-wallet"></i>
-                        </div>
-                        <div class="content">
-                            <div class="content_text">
-                                <span class="entry_name">Conta Poupança</span>
-                                <span class="entry_value">R$ 0,00</span>
+                    <?php foreach ($inflows as $inflow): ?>
+                        <div class="entry">
+                            <div class="icon">
+                                <i class="fas fa-wallet"></i>
                             </div>
-                            <div class="content_buttons">
-                                <button class="delete"><i class="fas fa-trash-alt"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="entry">
-                        <div class="icon">
-                            <i class="fa-solid fa-money-bill"></i>
-                        </div>
-                        <div class="content">
-                            <div class="content_text">
-                                <span class="entry_name">Conta Corrente</span>
-                                <span class="entry_value">R$ 0,00</span>
-                            </div>
-                            <div class="content_buttons">
-                                <button class="delete"><i class="fas fa-trash-alt"></i></button>
+                            <div class="content">
+                                <div class="content_text">
+                                    <span class="entry_name"><?= $inflow->nome ?></span>
+                                    <span class="entry_value">R$ <?= number_format($inflow->valor, 2, ',', '.') ?></span>
+                                </div>
+                                <div class="content_buttons">
+                                    <a href="<?= REDIRECT_URL ?>/remover-entrada/<?= $inflow->id ?>" class="remove"><i class="fas fa-trash"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="entry">
-                        <div class="icon">
-                            <i class="fas fa-wallet"></i>
-                        </div>
-                        <div class="content">
-                            <div class="content_text">
-                                <span class="entry_name">Bolsa de Valores</span>
-                                <span class="entry_value">R$ 0,00</span>
-                            </div>
-                            <div class="content_buttons">
-                                <button class="delete"><i class="fas fa-trash-alt"></i></button>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
 
-                <div class="register-entry">
-                    <input type="text" placeholder="Nome da Entrada">
-                    <input type="number" placeholder="Valor da Entrada">
-                    <button id="register-entry-btn">Registrar</button>
-                </div>
+                <form method="POST" id="register-entry" class="register-entry">
+                    <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
+                    <input type="hidden" name="type" value="entry">
+                    <input type="text" name="nome" placeholder="Nome da Entrada">
+                    <input type="number" name="valor" placeholder="Valor da Entrada">
+                    <button name="register-entry" id="register-entry-btn">Registrar Entrada</button>
+                </form>
             </div>
 
             <div class="exit-content none">
-                <span class="total">Total: R$ 0,00</span>
+                <span class="total">Total: R$ <?= number_format($total_outflow, 2, ',', '.') ?></span>
                 <div class="entries-grid">
-                    
-                    <div class="entry">
-                        <div class="icon">
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div class="content">
-                            <div class="content_text">
-                                <span class="entry_name">Restaurante</span>
-                                <span class="entry_value">R$ 0,00</span>
+                    <?php foreach ($outflows as $outflow): ?>
+                        <div class="entry">
+                            <div class="icon">
+                                <i class="fas fa-wallet"></i>
                             </div>
-                            <div class="content_buttons">
-                                <button class="delete"><i class="fas fa-trash-alt"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="entry">
-                        <div class="icon">
-                            <i class="fa-solid fa-money-bill"></i>
-                        </div>
-                        <div class="content">
-                            <div class="content_text">
-                                <span class="entry_name">Aluguel</span>
-                                <span class="entry_value">R$ 0,00</span>
-                            </div>
-                            <div class="content_buttons">
-                                <button class="delete"><i class="fas fa-trash-alt"></i></button>
+                            <div class="content">
+                                <div class="content_text">
+                                    <span class="entry_name"><?= $outflow->nome ?></span>
+                                    <span class="entry_value">R$ <?= number_format($outflow->valor, 2, ',', '.') ?></span>
+                                </div>
+                                <div class="content_buttons">
+                                    <a href="<?= REDIRECT_URL ?>/remover-saida/<?= $outflow->id ?>" class="remove"><i class="fas fa-trash"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="entry">
-                        <div class="icon">
-                            <i class="fas fa-car"></i>
-                        </div>
-                        <div class="content">
-                            <div class="content_text">
-                                <span class="entry_name">Transporte</span>
-                                <span class="entry_value">R$ 0,00</span>
-                            </div>
-                            <div class="content_buttons">
-                                <button class="delete"><i class="fas fa-trash-alt"></i></button>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
 
-                <div class="register-entry register-exit">
-                    <input type="text" placeholder="Nome da Saída">
-                    <input type="number" placeholder="Valor da Saída">
-                    <button id="register-exit-btn">Registrar</button>
-                </div>
+                <form method="POST" id="register-exit" class="register-entry register-exit">
+                    <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
+                    <input type="hidden" name="type" value="exit">
+                    <input type="text" name="nome" placeholder="Nome da Saída">
+                    <input type="number" name="valor" placeholder="Valor da Saída">
+                    <button name="register-exit" id="register-exit-btn">Registrar Saída</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
-<script src="./scripts/entradas.js"></script>
+<script src="<?= REDIRECT_URL ?>/scripts/entradas.js"></script>
 </body>
 </html>

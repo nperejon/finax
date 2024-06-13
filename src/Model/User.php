@@ -169,7 +169,7 @@ class User
         if ($stmt->rowCount() > 0) {
             $data = $stmt->fetch();
 
-            if (password_verify($password, $data->password)) {
+            if (password_verify($password, $data->senha)) {
                 return true;
             }
         }

@@ -145,6 +145,12 @@ body {
     background-color: #28a745;
 }
 
+#perfil a,
+#sair a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .waves {
     position: absolute;
     bottom: 0;
