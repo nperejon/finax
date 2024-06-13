@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
 /*Importação da fonte "Montserrat", utilizada abaixo:*/
 
 *{
@@ -9,10 +9,6 @@
 }
 
 body{
-    /*background: rgb(11,112,0);
-    background: linear-gradient(113deg, rgba(11,112,0,1) 23%, rgba(28,121,9,1) 23%, #00ff96 82%);*/
-    /*background: rgb(255,255,255);
-    background: linear-gradient(54deg, rgba(255,255,255,1) 9%, rgba(184,255,170,1) 52%, rgba(80,200,120,1) 83%);*/
     background: #50C878;
     display: flex;
     align-items: center;
@@ -20,10 +16,13 @@ body{
     flex-direction: column;
     height: 100vh;
 } 
-/*Formatação do corpo do site (Fundo). Foi utilizado o site: https://cssgradient.io/ para pegar o gradiente*/
+
+.form-container h1 {
+    margin-bottom: 12px;
+}
 
 .container{
-    color: rgb(0, 75, 29);
+    color: rgb(35, 105, 62);
     outline: rgb(0, 255, 128);
     outline-width: 15px;
     background-color: #ffffff;
@@ -36,14 +35,6 @@ body{
 }
 /*O "container" é a caixa onde se encontram os espaços para inserir e-mail, senha, e também para redirecionar o usuário para a tela de "Esqueceu a senha"*/
 
-.sign-in{
-    left: 0;
-    width: 100%;
-    z-index: 2;
-}
-.container h1{
-    margin-top: -20px;
-}
 .container p{
     color: rgb(255, 255, 255);
     outline: rgb(0, 255, 128);
@@ -54,13 +45,10 @@ body{
     margin: 20px 0;
 }
 
-.total{
-    text-align: center;
-    position: relative;
-    font-size: 20px;
-    margin-top: -20px;
-
+.container span{
+    font-size: 12px;
 }
+
 .container a{
     color: #063511;
     font-size: 13px;
@@ -84,154 +72,31 @@ body{
     margin-bottom: 5px;
     cursor: pointer;
 }
-
+.container button:hover{
+    transition: background-color 0.5s, color 0.3s;
+    background-color: #50c878a8;
+    color: #06351165;
+}
+.container button:not(:hover){
+    transition: background-color 0.5s, color 0.3s;
+    background-color: #50C878;
+    color: aff8da;
+}
 .container button.hidden{
     background-color: #fff;
     color: #50C878;
     border-color: #c2ffd6;
 }
 
-.container .entries-container{
+.container form{
     background-color: #FFF;
     display: flex;
     align-items: center;
-    flex-direction: column;
-    padding: 40px;
-    text-align: center;
-}
-
-.registers {
-    margin: 20px 0;
-    display: flex;
-    gap: 20px;
-}
-
-.registers span {
-    border: 1px solid #46a164;
-    padding: 8px 16px;
-    width: 100px;
-    margin-bottom: -20px;
-    margin-top: -10px;
-    color: #063511;
-    font-size: 1rem;
-    border-radius: 12px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    
-}
-.registers span.active {
-    background-color: #063511;
-    color: #fff;
-}
-.registers .entry:hover,
-.registers .exit:hover{
-    background-repeat: no-repeat;
-    border-color: #fff;
-    background-color: #46a16583;
-    color: #ebfcf0;
-}
-.entry-content,
-.exit-content {
-    flex-direction: column;
-    display: flex;
-    flex: 1;
-    max-height: calc(100% - 130px);
-}
-
-.entry-content.none,
-.exit-content.none {
-    display: none;
-}
-
-.entries-grid {
-    display: flex;
-    gap: 20px;
-    max-height: calc(100% - 200px);
     flex-direction: column;
     padding: 0 40px;
-    flex: 1;
-    overflow-y: auto;
-}
-
-.entries-grid .entry:first-of-type {
-    margin-top: 30px;
-}
-
-.entries-grid .entry {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.entries-grid .entry i {
-    font-size: 2.5rem;
-}
-
-
-.entries-grid .entry .content {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.entries-grid .entry .content .content_text {
-    display: flex;
-    flex-direction: column;
-}
-
-
-
-.entries-grid .entry .content .content_buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.entries-grid .entry .content .content_buttons button {
-    width: fit-content;
-    height: 30px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    color: #063511;
-}
-
-.entries-grid .entry .content .content_buttons i {
-    font-size: 0.9rem;
-}
-
-.entries-grid .entry .content span {
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.entries-grid .entry .content .entry_value {
-    font-size: 0.9rem;
-    font-weight: 400;
-}
-
-.entries-grid .total {
-    width: 100%;
+    height: 100%;
     text-align: center;
-    font-weight: 600;
-    font-size: 1.2rem;
-}
-
-.register-entry {
-    margin: 20px 0;
-    display: flex;
-    padding: 0 40px;
-    justify-content: flex-end;
-    align-items: flex-end;
-    flex-direction: column;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
 }
 
 .container input{
@@ -245,22 +110,28 @@ body{
     outline: none;
     transition: all 0.3s ease-in-out;
 }
-.container input:hover{
-    background-color: #83b1925e;
-}
+
 .container input:focus{
     background-color: #83b1925e;
     box-shadow: inset 2px 2px #83b1925e;
 }
+.container input:hover{
+    background-color: #90caa45e;
+    color: #063511;
+}
+
 .form-container{
     position: absolute;
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
-    display: flex;
-    flex-direction: column;
 }
 
+.sign-in{
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
 
 .container.active .sign-in{
     transform: translateX(100%);
@@ -300,6 +171,51 @@ body{
     margin: 20px 10px;
     width: 40px;
     height: 40px;
+    transition: all 0.3s ease-in-out;
+}
+
+.icones a:hover{
+    transform: translateX(-2px) translateY(-2px);
+    animation: move;
+    background-color: #f5f5f5;
+}
+.icones a:not(:hover){
+    background-color: #fff;
+    color: #063511;
+    box-shadow: 0 0 #fff;
+}
+
+#fb_login:hover{
+    color: #0165E1;
+    box-shadow: 3px 3px #0165E118;
+    text-shadow: 1px 1px 1px #006cd173;
+}
+#gh_login:hover{
+    color: #8c00ff;
+    box-shadow: 3px 3px #8c00ff18;
+    text-shadow: 1px 1px 1px #8c00ff73;
+}
+#lkd_login:hover{
+    color: #0A66C2;
+    box-shadow: 3px 3px #0A66C218;
+    text-shadow: 1px 1px 1px #005da873;
+}
+#g_login:hover{
+    color: #ff0000;
+    box-shadow: 3px 3px #ff000018;
+    text-shadow: 1px 1px 1px #af000073;
+}
+
+#register:hover{
+    transition: background-color 0.5s, color 0.3s;
+    background-color: #deffe9;
+    color: #569945;
+}
+
+#login:hover{
+    transition: background-color 0.5s, color 0.3s;
+    background-color: #deffe9;
+    color: #569945;
 }
 .toggle-container{
     position: absolute;
@@ -363,4 +279,8 @@ body{
 } 
 .container.active .toggle-right{
     transform: translateX(200%) ;
+}
+
+#forgotpassword:hover{
+    color: #50C878;
 }

@@ -132,6 +132,6 @@
         </div>
     </div>
 </div>
-<script src="entradas.js"></script>
+<script src="./scripts/entradas.js"></script>
 </body>
 </html>
