@@ -35,7 +35,7 @@ class User
             $this->email = $data['email'];
             $this->telefone = $data['telefone'];
             $this->senha = $data['senha'];
-            $this->datanascimento = $data['datanascimento'];
+            $this->datanascimento = $data['data_de_nascimento'];
             $this->nome = $data['nome'];
         }
     }
@@ -53,7 +53,7 @@ class User
             $this->email = $data['email'];
             $this->telefone = $data['telefone'];
             $this->senha = $data['senha'];
-            $this->datanascimento = $data['datanascimento'];
+            $this->datanascimento = $data['data_de_nascimento'];
             $this->nome = $data['nome'];
         }
     }
@@ -71,7 +71,7 @@ class User
             $this->email = $data['email'];
             $this->telefone = $data['telefone'];
             $this->senha = $data['senha'];
-            $this->datanascimento = $data['datanascimento'];
+            $this->datanascimento = $data['data_de_nascimento'];
             $this->nome = $data['nome'];
         }
     }
@@ -91,7 +91,7 @@ class User
             $this->email = $data['email'];
             $this->telefone = $data['telefone'];
             $this->senha = $data['senha'];
-            $this->datanascimento = $data['datanascimento'];
+            $this->datanascimento = $data['data_de_nascimento'];
             $this->nome = $data['nome'];
 
             return true;
@@ -102,7 +102,7 @@ class User
 
     public function edit()
     {
-        $sql = "UPDATE usuario SET nome = :nome, email = :email, telefone = :telefone, senha = :senha, datanascimento = :datanascimento WHERE id = :id";
+        $sql = "UPDATE usuario SET nome = :nome, email = :email, telefone = :telefone, senha = :senha, data_de_nascimento = :datanascimento WHERE id = :id";
         $stmt = Database::getInstance()->prepare($sql);
         $stmt->execute([
             ':nome' => $this->nome,
@@ -115,7 +115,7 @@ class User
 
     public function save()
     {
-        $sql = "INSERT INTO usuario (nome, email, telefone, senha, datanascimento) VALUES (:nome, :email, :telefone, :senha, :datanascimento)";
+        $sql = "INSERT INTO usuario (nome, email, telefone, senha, data_de_nascimento) VALUES (:nome, :email, :telefone, :senha, :datanascimento)";
         $stmt = Database::getInstance()->prepare($sql);
         $stmt->execute([
             ':nome' => $this->nome,
@@ -128,7 +128,7 @@ class User
 
     public function update()
     {
-        $sql = "UPDATE usuario SET nome = :nome, email = :email, telefone = :telefone, senha = :senha, datanascimento = :datanascimento WHERE id = :id";
+        $sql = "UPDATE usuario SET nome = :nome, email = :email, telefone = :telefone, senha = :senha, data_de_nascimento = :datanascimento WHERE id = :id";
         $stmt = Database::getInstance()->prepare($sql);
         $stmt->execute([
             ':nome' => $this->nome,

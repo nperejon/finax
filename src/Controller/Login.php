@@ -1,5 +1,6 @@
 <?php
 namespace Source\Controller;
+use Exception;
 use Source\Core\CsrfToken;
 use Source\Core\SessionManager;
 use Source\Model\User;
@@ -19,7 +20,7 @@ class Login
         if (isset($data['register'])) {
             $this->register($data);
             return;
-        } else {
+        } else if (isset($data['login'])) {
             $this->login($data);
             return;
         }
@@ -33,30 +34,33 @@ class Login
         if (!CsrfToken::check($csrf_token)) {
             SessionManager::set('message', [
                 'type' => 'error',
+                'mode' => 'login',
                 'message' => 'Token CSRF inválido.'
             ]);
 
-            header('Location: '.BASE_URL.'/');
+            header('Location: '.BASE_URL);
             exit;
         }
 
         if (empty($email) || empty($senha)) {
             SessionManager::set('message', [
                 'type' => 'error',
+                'mode' => 'login',
                 'message' => 'Por favor, preencha todos os campos.'
             ]);
 
-            header('Location: '.BASE_URL.'/');
+            header('Location: '.BASE_URL);
             exit;
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             SessionManager::set('message', [
                 'type' => 'error',
+                'mode' => 'login',
                 'message' => 'Por favor, digite um e-mail válido.'
             ]);
 
-            header('Location: '.BASE_URL.'/');
+            header('Location: '.BASE_URL);
             exit;
         }
 
@@ -64,7 +68,7 @@ class Login
             $user = new User();
             $user->email = $email;
             if (!$user->login($senha)) {
-                throw new \PDOException('Senha incorreta.');
+                throw new Exception('Senha incorreta.');
             }
     
             SessionManager::set('message', [
@@ -80,15 +84,16 @@ class Login
             SessionManager::set('user_telefone', $user->telefone);
             SessionManager::set('user_datanascimento', $user->datanascimento);
 
-            header('Location: '.BASE_URL.'/painel');
+            header('Location: '.BASE_URL.'/home');
             exit;
-        } catch (\PDOException $e) {
+        } catch (Exception $e) {
             SessionManager::set('message', [
                 'type' => 'error',
+                'mode' => 'login',
                 'message' => 'Erro ao logar usuário.'
             ]);
 
-            header('Location: '.BASE_URL.'/login');
+            header('Location: '.BASE_URL);
             exit;
         }
     }
@@ -102,33 +107,39 @@ class Login
         $datanascimento = filter_var($data['datanascimento'], 513);
         $nome = filter_var($data['nome'], 513);
 
+        $datanascimento = date('Y-m-d', strtotime($datanascimento));
+
         if (!CsrfToken::check($csrf_token)) {
             SessionManager::set('message', [
                 'type' => 'error',
+                'mode' => 'register',
                 'message' => 'Token CSRF inválido.'
             ]);
 
-            header('Location: '.BASE_URL.'/');
+            header('Location: '.BASE_URL);
             exit;
         }
 
         if (empty($email) || empty($senha) || empty($telefone) || empty($datanascimento) || empty($nome)) {
+            if (empty($email))
             SessionManager::set('message', [
                 'type' => 'error',
+                'mode' => 'register',
                 'message' => 'Por favor, preencha todos os campos.'
             ]);
 
-            header('Location: '.BASE_URL.'/');
+            header('Location: '.BASE_URL);
             exit;
         }
 
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             SessionManager::set('message', [
                 'type' => 'error',
+                'mode' => 'register',
                 'message' => 'Por favor, digite um e-mail válido.'
             ]);
 
-            header('Location: '.BASE_URL.'/');
+            header('Location: '.BASE_URL);
             exit;
         }
 
@@ -143,18 +154,20 @@ class Login
 
             SessionManager::set('message', [
                 'type' => 'success',
+                'mode' => 'login',
                 'message' => 'Usuário cadastrado com sucesso.'
             ]);
 
-            header('Location: '.BASE_URL.'/');
+            header('Location: '.BASE_URL);
             exit;
-        } catch (\PDOException $e) {
+        } catch (Exception $e) {
             SessionManager::set('message', [
                 'type' => 'error',
+                'mode' => 'register',
                 'message' => 'Erro ao cadastrar usuário.'
             ]);
 
-            header('Location: '.BASE_URL.'/');
+            header('Location: '.BASE_URL);
             exit;
         }
     }

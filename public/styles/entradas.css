@@ -70,27 +70,6 @@ body{
     outline-width: 15px;
 }
 
-.container button{
-    background-color: #50C878;
-    color: #aff8da;
-    font-size: 12px;
-    padding: 5px 20px;
-    border: 1px solid transparent;
-    border-radius: 10px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-top: 4px;
-    margin-bottom: 5px;
-    cursor: pointer;
-}
-
-.container button.hidden{
-    background-color: #fff;
-    color: #50C878;
-    border-color: #c2ffd6;
-}
-
 .container .entries-container{
     background-color: #FFF;
     display: flex;
@@ -362,4 +341,28 @@ body{
 } 
 .container.active .toggle-right{
     transform: translateX(200%) ;
+}
+
+
+.container button,
+.container input[type="submit"]{
+    background-color: #50C878;
+    color: #aff8da;
+    font-size: 12px;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.container button.hidden,
+.container input[type="submit"].hidden{
+    background-color: #fff;
+    color: #50C878;
+    border-color: #c2ffd6;
 }

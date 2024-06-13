@@ -284,3 +284,41 @@ body{
 #forgotpassword:hover{
     color: #50C878;
 }
+
+.container button,
+.container input[type="submit"]{
+    background-color: #50C878;
+    color: #aff8da;
+    font-size: 12px;
+    padding: 5px 20px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.container button.hidden,
+.container input[type="submit"].hidden{
+    background-color: #fff;
+    color: #50C878;
+    border-color: #c2ffd6;
+}
+
+
+.message {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.message.success {
+    background-color: #50C878;
+}

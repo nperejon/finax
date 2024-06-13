@@ -10,16 +10,28 @@
 </head>
 
 <body>
-    <div class="container" id="container">
+    <div class="container 
+    <?php 
+        if (isset($_SESSION['message']) && isset($_SESSION['message']['mode']) && $_SESSION['message']['mode'] == 'register') {
+            echo 'active';
+        }
+    ?>
+    " id="container">
         <div class="form-container sign-in">
             <form method="POST" name="login">
+                <?php 
+                    if (isset($_SESSION['message']) && isset($_SESSION['message']['mode']) && $_SESSION['message']['mode'] == 'login') {
+                        $message = $_SESSION['message'];
+                        echo "<div class='message {$message['type']}'>{$message['message']}</div>";
+                        unset($_SESSION['message']);
+                    }
+                ?>
                 <h1>Entre com sua conta!</h1>
                 <span>Ou insira seu e-mail e sua senha</span>
                 <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
-                <input type="email" class="login" placeholder="E-mail" required>
-                <input type="password" class="login" placeholder="Insira uma senha" required>
-                <button id="entrar" type="submit" name="login">Entrar</button>
-
+                <input type="email" name="email" class="login" placeholder="E-mail" required>
+                <input type="password" name="senha" class="login" placeholder="Insira uma senha" required>
+                <input type="submit" name="login" value="Entrar">
                 <a href="senha.html" id="forgotpassword">Esqueceu sua senha?</a>
             </form>
         </div>
@@ -27,15 +39,22 @@
 
         <div class="form-container sign-up">
             <form method="POST" name="register">
+                <?php 
+                    if (isset($_SESSION['message']) && isset($_SESSION['message']['mode']) && $_SESSION['message']['mode'] == 'register') {
+                        $message = $_SESSION['message'];
+                        echo "<div class='message {$message['type']}'>{$message['message']}</div>";
+                        unset($_SESSION['message']);
+                    }
+                ?>
                 <h1>Crie sua conta!</h1>
                 <span>Ou cadastre-se no nosso site</span>
-                <input type="text" class="registers" placeholder="Nome" required>
-                <input type="email" class="registers" placeholder="E-mail" required>
-                <input type="password" class="registers" placeholder="Insira uma senha" required>
-                <input type="telefone" class="registers" placeholder="Nº de celular">
-                <input type="date" class="registers" placeholder="Data de nascimento" required>
+                <input type="text" name="nome" class="registers" placeholder="Nome" required>
+                <input type="email" name="email" class="registers" placeholder="E-mail" required>
+                <input type="password" name="senha" class="registers" placeholder="Insira uma senha" required>
+                <input type="telefone" name="telefone" class="registers" placeholder="Nº de celular">
+                <input type="date" class="registers" name="datanascimento" placeholder="Data de nascimento" required>
                 <input type="hidden" name="csrf_token" value="<?= $csrf_token ?>">
-                <button id="registrar" type="submit" name="register">Registrar</button>
+                <input id="registrar" type="submit" name="register" value="Registrar">
             </form>
         </div>
         <div class="toggle-container">
