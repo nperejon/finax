@@ -29,7 +29,7 @@
 
         <button id="imagem-botao" class="botao-imagem"></button>
         <div id="opcoes" class="opcoes">
-            <button id="perfil"><a href="<?= REDIRECT_URL ?>/profile">Perfil</a></button>
+            <button id="perfil"><a href="<?= REDIRECT_URL ?>/perfil">Perfil</a></button>
             <button id="sair"> <a href="<?= REDIRECT_URL ?>/logout">Sair</a></button>
         </div>
     </div>

@@ -8,8 +8,3 @@ const opcoes = document.getElementById('opcoes');
 imagemBotao.addEventListener('click', function() {
     opcoes.style.display = opcoes.style.display === 'block' ? 'none' : 'block';
 });
-
-// Ação ao clicar no botão "Perfil"
-document.getElementById('perfil').addEventListener('click', function() {
-    alert('Opção: Perfil');
-});

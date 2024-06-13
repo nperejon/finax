@@ -36,7 +36,7 @@
                                     <span class="entry_value">R$ <?= number_format($inflow->valor, 2, ',', '.') ?></span>
                                 </div>
                                 <div class="content_buttons">
-                                    <a href="<?= REDIRECT_URL ?>/remover-entrada/<?= $inflow->id ?>" class="remove"><i class="fas fa-trash"></i></a>
+                                    <a href="<?= REDIRECT_URL ?>/entrada/remove/<?= $inflow->id ?>" class="remove"><i class="fas fa-trash"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                                     <span class="entry_value">R$ <?= number_format($outflow->valor, 2, ',', '.') ?></span>
                                 </div>
                                 <div class="content_buttons">
-                                    <a href="<?= REDIRECT_URL ?>/remover-saida/<?= $outflow->id ?>" class="remove"><i class="fas fa-trash"></i></a>
+                                    <a href="<?= REDIRECT_URL ?>/saida/remove/<?= $outflow->id ?>" class="remove"><i class="fas fa-trash"></i></a>
                                 </div>
                             </div>
                         </div>
