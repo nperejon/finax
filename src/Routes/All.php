@@ -1,7 +1,7 @@
 <?php
 
 namespace Source\Routes;
-class Admin
+class All
 {
     private $router;
     
@@ -14,5 +14,6 @@ class Admin
     private function login()
     {
         $this->router->get("/", "Login:index", "login.index");
+        $this->router->post("/", "Login:post", "login.post");
     }
 }

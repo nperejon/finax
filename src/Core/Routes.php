@@ -2,17 +2,16 @@
 
 namespace Source\Core;
 use CoffeeCode\Router\Router;
-use Source\Routes\Admin;
+use Source\Routes\All;
 
 class Routes
 {
     function __construct()
     {
-
         $router = new Router(BASE_URL);
         $router->namespace("Source\\Controller");
 
-        new Admin($router);
+        new All($router);
         
         $router->dispatch();
 
